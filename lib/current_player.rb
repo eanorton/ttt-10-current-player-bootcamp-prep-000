@@ -1,9 +1,13 @@
-token = ("X", "O")
-
 def turn_count(board)
-  turns = 0 
-  board.each do |board|
-    puts "It is #{token}'s turn!"
+  board.count{|token| token == "X" || token == "O"}
+
+  turns = 0
+  board.each do |token|
+    if token == "X" || token == "O"
+      turns += 1
+    end
+  end
+  turns
 end
 
 def current_player(board)
